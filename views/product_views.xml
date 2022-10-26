@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?><odoo>
+  <data>
+    <record id="product_category_form_view_inherited" model="ir.ui.view">
+      <field name="name">product.category.form.view.inherited</field>
+      <field name="model">product.category</field>
+      <field name="inherit_id" ref="product.product_category_form_view"/>
+      <field name="arch" type="xml">
+        <xpath expr="//div[hasclass('oe_title')]" position="inside">
+            <label for="code" string="Code"/>
+            <h1><field name="code" nolabel="1"  placeholder="Code unique e.g. 0001"/></h1>
+        </xpath>
+      </field>
+    </record>
+
+    <record id="product_category_list_view_inherited" model="ir.ui.view">
+        <field name="name">product.category.list.view.inherited</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_list_view"/>
+        <field name="arch" type="xml">
+          <xpath expr="//field[@name='display_name']" position="before">
+            <field name="code"/>
+          </xpath>
+        </field>
+    </record>
+
+
+    <record id="product_category_search_view_inherited" model="ir.ui.view">
+        <field name="name">product.category.search.view.inherited</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_search_view"/>
+        <field name="arch" type="xml">
+          <xpath expr="//field[@name='name']" position="after">
+            <field name="code"/>
+          </xpath>
+        </field>
+    </record>
+
+
+  </data>
+</odoo>
